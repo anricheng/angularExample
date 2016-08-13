@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <link rel="stylesheet" href="lib/bootstrap.min.css">
+    <style>
+
+        .red {
+            background: #c9302c;
+        }
+
+        .error{
+             border: 1px solid #a10;
+        }
+    </style>
+</head>
+<body ng-app="myApp" ng-controller="MainController">
+
+<!--ng-model 的使用-->
+
+<!--<input type="number" ng-model="name" ng-minlength="4" ng-maxlength="10">-->
+
+<!--<div class="red">-->
+    <!--{{name}}-->
+<!--</div>-->
+
+
+<!--ng-submit and ng-class 方法的使用-->
+
+<form name="signUpForm" ng-submit="submitForm()">
+
+<div class="form-group">
+    <label>用户名:</label>
+    <input name="username"
+           ng-minlength="4"
+          required="required"
+           ng-model="username"
+           class="form-control"
+           ng-class="{ 'error': signUpForm.username.$invalid && signUpForm.username.$touched }">
+</div>
+
+    <div ng-if="signUpForm.username.$invalid && signUpForm.username.$touched">您的输入有误,请检查!!!</div>
+
+    <label>用户名:</label>
+
+
+
+</form>
+
+<script src="lib/angular.min.js"></script>
+<script src="js/main.js"></script>
+
+
+</body>
+</html>
